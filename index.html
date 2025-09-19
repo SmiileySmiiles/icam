@@ -100,13 +100,20 @@
     /* Make Our Aims bubbles equal size */
     #about .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-template-columns: 1fr; /* default: 1 column (mobile-friendly) */
     gap: 16px;
     align-items: stretch; /* stretch cards to same height */
 }
 
-  #about .card {
-  height: 100%; /* each card fills its grid cell */
+    #about .card {
+    height: 100%; /* each card fills its grid cell */
+}
+
+    /* On screens 768px and wider → 3 columns */
+    @media (min-width: 768px) {
+    #about .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  }
 }
     
     /* Footer */
