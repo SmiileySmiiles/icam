@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Innovation Centre for Additive Manufacturing (ICAM)</title>
+  <meta name="description" content="Innovation Centre for Additive Manufacturing (ICAM): industry partnerships, capabilities, and solutions in 3D printing and advanced manufacturing." />
+  <meta property="og:title" content="Innovation Centre for Additive Manufacturing" />
+  <meta property="og:description" content="Capabilities, solutions, projects, and industry collaboration in additive manufacturing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="theme-color" content="#C1272D" />
+
+  <style>
+    :root{
+      --brand: #C1272D;          /* Primary brand (user red) */
+      --brand-2: #C1272D;        /* Accent */
+      --bg: #ffffff;             /* White theme */
+      --ink: #0f172a;            /* Body text */
+      --muted: #475569;          /* Muted text */
+      --card: #ffffff;           /* Card background */
+      --ring: rgba(193, 39, 45, .25); /* Focus ring based on red */
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(2, 6, 23, .08);
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* Reset default link styles globally */
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: none; }
+
+    /* Header / Nav */
+    .topbar{
+      position: sticky; top: 0; z-index: 40;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    }
+    .container{ max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    .nav{ display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand{ display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo{ width: 36px; height: 36px; border-radius: 8px; background: var(--brand); display: grid; place-items: center; color: #fff; font-weight: 800; }
+    .brand span{ font-weight: 700; color: var(--brand); letter-spacing: 0.2px; }
+    .menu{ display: flex; gap: 18px; align-items: center; }
+    .menu a{ color: var(--muted); font-weight: 600; padding: 8px 10px; border-radius: 10px; display:inline-block; }
+    .menu a:hover{ color: var(--brand); background: #fdf2f3; }
+    .menu .cta{ color: #fff; background: var(--brand); border: 1px solid var(--brand); }
+    .menu .cta:hover{ background: #a32025; }
+    .hamburger{ display:none; background:none; border:none; font-size: 26px; }
+
+    /* Hero */
+    .hero{ background: radial-gradient(1200px 500px at 70% -50%, rgba(193,39,45,.08), transparent), #fff; }
+    .hero-wrap{ display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; padding: 56px 0 40px; }
+    .eyebrow{ color: var(--brand-2); font-size: 14px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1{ font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin: 8px 0 14px; }
+    .lead{ font-size: 18px; color: var(--muted); }
+    .hero-cta{ display:flex; gap: 12px; margin-top: 20px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding: 12px 16px; border-radius: 12px; text-decoration:none; border:1px solid #e5e7eb; background:#fff; color: var(--ink); font-weight:700;
+      box-shadow: 0 2px 8px rgba(2,6,23,.04);
+    }
+    .btn:hover{ border-color: #d1d5db; transform: translateY(-1px); transition: .15s ease; }
+    .btn.primary{ background: var(--brand); color:#fff; border-color: var(--brand); }
+
+    .hero-card{ background: var(--card); border:1px solid #e5e7eb; border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    .hero-card img{ width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
+
+    /* Sections */
+    section{ padding: 56px 0; }
+    .section-head{ display:flex; align-items:end; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    h2{ font-size: clamp(22px, 3vw, 32px); margin:0; }
+    .kicker{ color: var(--muted); max-width: 720px; }
+
+    .grid{ display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .col-4{ grid-column: span 4; }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+
+    .card{ background: var(--card); border:1px solid #e5e7eb; border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    .card h3{ margin: 0 0 8px; font-size: 18px; }
+    .card p{ margin: 0; color: var(--muted); }
+
+    .badge{ display:inline-block; padding: 6px 10px; font-size: 12px; font-weight: 700; color: var(--brand); background: #fde8e9; border: 1px solid #f5c2c4; border-radius: 999px; }
+
+    /* Accordion */
+    details{ border:1px solid #e5e7eb; background:#fff; border-radius: 12px; padding: 14px 16px; }
+    details[open]{ box-shadow: var(--shadow); }
+    details + details{ margin-top: 10px; }
+    summary{ cursor: pointer; font-weight: 700; color: var(--brand); }
+
+    /* Footer */
+    footer{ background: var(--brand); color: #f8f9fa; margin-top: 24px; }
+    .footer-inner{ display:grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; padding: 32px 0; }
+    .footer-inner a{ color:#f8f9fa; text-decoration:none; }
+    .fineprint{ border-top: 1px solid rgba(255,255,255,.2); font-size: 12px; padding: 12px 0 24px; color: #f1f1f1; }
+
+    @media (max-width: 960px){
+      .hero-wrap{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: repeat(6, 1fr); }
+      .col-4{ grid-column: span 6; }
+      .col-6{ grid-column: span 6; }
+    }
+    @media (max-width: 720px){
+      .menu{ display:none; }
+      .hamburger{ display:block; }
+      .mobile-menu{ display:none; border-top: 1px solid #e5e7eb; background:#fff; }
+      .mobile-menu a{ display:block; padding: 12px 20px; text-decoration:none; color: var(--muted); border-bottom: 1px solid #e5e7eb; }
+      .mobile-menu a:hover{ background:#fdf2f3; }
+    }
+
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus{ position:static; width:auto; height:auto; padding:8px 12px; background:#fff; border:2px solid var(--brand); border-radius:8px; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar" role="banner">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="ICAM Home">
+        <div class="logo" aria-hidden="true">AM</div>
+        <span>Innovation Centre for Additive Manufacturing</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <button class="hamburger" aria-controls="mobile-menu" aria-expanded="false" title="Open menu">☰</button>
+        <div class="menu">
+          <a href="#about">About</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact" class="cta">Contact</a>
+        </div>
+      </nav>
+  </div>
+    
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow">Industry & Partnerships</div>
+          <h1>Innovation Centre for Additive Manufacturing</h1>
+          <p class="lead">We help companies explore, de-risk, and scale <strong>additive manufacturing</strong> through applied research, pilot trials, and workforce upskilling. From materials to process to part qualification, our experts turn ideas into certified products.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn" href="#capabilities">Explore capabilities</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Key highlights">
+          <img src="https://images.unsplash.com/photo-1558522195-e1201b090344?q=80&w=1600&auto=format&fit=crop" alt="Additive manufacturing lab with metal 3D printer" />
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="badge">Materials Lab</span>
+            <span class="badge">Process Optimisation</span>
+            <span class="badge">Design for AM</span>
+            <span class="badge">Qualification</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About ICAM</h2>
+          <p class="kicker">Edit this paragraph to describe your centre’s mission and how you support industry (e.g., consultancy, prototyping, pilot trials, training, and technology transfer).</p>
+        </div>
+
+        <div class="grid">
+          <div class="col-4">
+            <div class="card">
+              <h3>Mission</h3>
+              <p>Accelerate adoption of additive manufacturing by delivering practical solutions that improve performance, sustainability, and cost-effectiveness.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>What We Do</h3>
+              <p>Co-develop parts and processes with companies, validate materials and designs, and build talent through customised short courses.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>Who We Serve</h3>
+              <p>Aerospace, marine, precision engineering, biomedical, electronics, and built environment partners seeking AM-enabled solutions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;" class="grid">
+          <div class="col-12">
+            <details>
+              <summary>Our innovation platforms (click to expand)</summary>
+              <div style="margin-top:10px; color:var(--muted)">
+                <ul>
+                  <li><strong>Design & Simulation:</strong> Generative design, topology optimisation, lattices, and process simulation to reduce trial-and-error.</li>
+                  <li><strong>Materials & Processes:</strong> Polymers (FDM/FFF, SLS), metals (DED, PBF), and composites; test coupons to full parts.</li>
+                  <li><strong>Certification & QA:</strong> Test plans, NDT, mechanical testing, and documentation to support qualification and audits.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CAPABILITIES ================= -->
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <h2>Capabilities</h2>
+          <p class="kicker">List your equipment, labs, software, and test capabilities. Keep it scannable.</p>
+        </div>
+
+        <div class="grid">
+          <div class="col-6">
+            <div class="card">
+              <h3>Design & Engineering</h3>
+              <ul>
+                <li>DFAM workshops and part screening</li>
+                <li>Generative design & topology optimisation</li>
+                <li>Process simulation and distortion compensation</li>
+                <li>Lattice structures and lightweighting</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <h3>Materials & Printing</h3>
+              <ul>
+                <li>Polymers: FDM/FFF, SLA/DLP, SLS</li>
+                <li>Metals: L-PBF, DED (wire/powder)</li>
+                <li>Composite & fibre-reinforced polymers</li>
+                <li>Process parameter optimisation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <h3>Post-Processing</h3>
+              <ul>
+                <li>Support removal, heat treatment</li>
+                <li>Surface finishing & coating</li>
+                <li>Machining & hybrid manufacturing</li>
+                <li>Assembly and functional testing</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <h3>Testing & Qualification</h3>
+              <ul>
+                <li>Mechanical testing (tensile, impact, hardness)</li>
+                <li>NDT (visual, dye penetrant; others via partners)</li>
+                <li>Dimensional inspection & CMM</li>
+                <li>Documentation for audits & certification</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOLUTIONS ================= -->
+    <section id="solutions">
+      <div class="container">
+        <div class="section-head">
+          <h2>Solutions</h2>
+          <p class="kicker">Common engagement models and offerings. Edit titles and bullets below.</p>
+        </div>
+
+        <div class="grid">
+          <div class="col-4">
+            <div class="card">
+              <h3>Consultancy & Prototyping</h3>
+              <p>Rapid design loops, functional prototypes, and pilot builds to validate feasibility and ROI.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>Part Redesign</h3>
+              <p>Convert legacy parts to AM-ready designs that reduce mass, part count, and lead time.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>Training & Upskilling</h3>
+              <p>Short courses tailored to engineers and technicians: DFAM, materials, processes, and QA.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>Material Development</h3>
+              <p>Polymer & metal feedstock evaluation, parameter development, and test plans.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>Qualification Support</h3>
+              <p>Test protocols, traceability, and documentation to support audits & certifications.</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <h3>Sustainability by Design</h3>
+              <p>LCA considerations, waste reduction, and repair/retrofit strategies enabled by AM.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS / SUCCESS STORIES ================= -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects & Success Stories</h2>
+          <p class="kicker">Swap images and text to showcase impact (keep it concise; link to PDFs if needed).</p>
+        </div>
+
+        <div class="grid">
+          <div class="col-6">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1612198185837-1b66f34a1b61?q=80&w=1600&auto=format&fit=crop" alt="Metal 3D printed part" style="width:100%; height:220px; object-fit:cover; border-radius: 10px;" />
+              <h3 style="margin-top:10px;">Lightweight Bracket (Aerospace)</h3>
+              <p>45% weight reduction, 30% part-count consolidation; machining operations eliminated. Pilot batch qualified to test plan.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1576435728678-b21f3b1071d8?q=80&w=1600&auto=format&fit=crop" alt="Polymer print farm" style="width:100%; height:220px; object-fit:cover; border-radius: 10px;" />
+              <h3 style="margin-top:10px;">Tooling Aids (Precision Engineering)</h3>
+              <p>AM tooling reduced lead time from 4 weeks to 4 days; cost savings of 60% vs conventional fixtures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="kicker">Edit your address, emails, and phone numbers here. The form below is static (no backend) and opens an email draft.</p>
+        </div>
+
+        <div class="grid">
+          <div class="col-6">
+            <div class="card">
+              <h3>Contact Details</h3>
+              <address style="font-style: normal; color: var(--muted)">
+                <strong>Innovation Centre for Additive Manufacturing</strong><br />
+                500 Dover Road, Singapore 139651<br />
+                Email: <a href="mailto:icam@example.org">icam@example.org</a><br />
+                Phone: <a href="tel:+6569000000">+65 6900 0000</a>
+              </address>
+              <p style="margin-top:10px; color: var(--muted)">For project enquiries, please include your industry, application, and timeline.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <h3>Quick Enquiry</h3>
+              <form action="mailto:icam@example.org" method="post" enctype="text/plain" onsubmit="alert('Your email client will open to send this message.');">
+                <label for="name">Name</label>
+                <input id="name" name="Name" type="text" required style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:10px; margin:6px 0 12px; outline:none; box-shadow: 0 0 0 3px transparent;" onfocus="this.style.boxShadow='0 0 0 3px var(--ring)';" onblur="this.style.boxShadow='0 0 0 3px transparent';" />
+
+                <label for="org">Organisation</label>
+                <input id="org" name="Organisation" type="text" style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:10px; margin:6px 0 12px; outline:none; box-shadow: 0 0 0 3px transparent;" onfocus="this.style.boxShadow='0 0 0 3px var(--ring)';" onblur="this.style.boxShadow='0 0 0 3px transparent';" />
+
+                <label for="msg">Message</label>
+                <textarea id="msg" name="Message" rows="4" required style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:10px; margin:6px 0 12px; outline:none; box-shadow: 0 0 0 3px transparent;" onfocus="this.style.boxShadow='0 0 0 3px var(--ring)';" onblur="this.style.boxShadow='0 0 0 3px transparent';"></textarea>
+
+                <button class="btn primary" type="submit">Email Us</button>
+              </form>
+              <p style="font-size:12px; color:var(--muted); margin-top:8px;">Tip: Replace <code>icam@example.org</code> in this file to route messages.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <h3 style="margin:0 0 6px; color:#fff;">Innovation Centre for Additive Manufacturing</h3>
+        <p style="margin:0; color:#f8f9fa;">Partnering industry to design, print, and qualify better products.</p>
+      </div>
+      <div>
+        <strong style="color:#fff;">Quick Links</strong>
+        <ul style="list-style:none; padding:0; margin:8px 0 0;">
+          <li><a href="#about">About</a></li>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color:#fff;">Contact</strong>
+        <ul style="list-style:none; padding:0; margin:8px 0 0;">
+          <li><a href="mailto:icam@example.org">icam@example.org</a></li>
+          <li><a href="tel:+6569000000">+65 6900 0000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container fineprint">
+      <div>© <span id="year"></span> ICAM. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.querySelector('.hamburger');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => {
+      const open = menu.style.display === 'block';
+      menu.style.display = open ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
