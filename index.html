@@ -97,23 +97,16 @@
     details + details{ margin-top: 10px; }
     summary{ cursor: pointer; font-weight: 700; color: var(--brand); }
 
-    /* Make Our Aims bubbles equal size */
+    /* Make Our Aims section always use 3 columns on desktop */
     #about .grid {
-    display: grid;
-    grid-template-columns: 1fr; /* default: 1 column (mobile-friendly) */
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* force 3 equal columns */
     gap: 16px;
-    align-items: stretch; /* stretch cards to same height */
+    align-items: stretch;
 }
 
     #about .card {
-    height: 100%; /* each card fills its grid cell */
-}
-
-    /* On screens 768px and wider → 3 columns */
-    @media (min-width: 768px) {
-    #about .grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  }
+    height: 100%;
 }
     
     /* Footer */
